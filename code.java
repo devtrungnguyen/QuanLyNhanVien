@@ -5,51 +5,51 @@ import java.util.Scanner;
 public class code {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        ArrayList<NhanVien> listNV = new ArrayList<>();
-        ArrayList<QuanLy> listQL = new ArrayList<>();
-        System.out.println("0. Thoat");
-        System.out.println("1. Them Quan Ly");
-        System.out.println("2. Them nhan vien");
-        System.out.println("3. Hien thi danh sach quan ly");
-        System.out.println("4. Hien thi danh sach nhan vien");
-        int luachon = 5;
+        ArrayList<STAFF> liststaff = new ArrayList<>();
+        ArrayList<MANAGER> listmanager = new ArrayList<>();
+        int option = 5;
 
-        while (luachon != 0) {
+        while (option != 0) {
+            System.out.println("0. Thoat");
+            System.out.println("1. Them Quan Ly");
+            System.out.println("2. Them nhan vien");
+            System.out.println("3. Hien thi danh sach quan ly");
+            System.out.println("4. Hien thi danh sach nhan vien");
             System.out.println("Moi ban nhap lua chon: ");
-            luachon = Integer.parseInt(scanner.nextLine());
+            option = Integer.parseInt(scanner.nextLine());
             String name = "";
-            switch (luachon) {
+            switch (option) {
                 case 1:
                     System.out.println("Ten quan ly: ");
                     name = scanner.nextLine();
-                    QuanLy QL = new QuanLy(name);
-                    listQL.add(QL);
+                    MANAGER manager = new MANAGER(name);
+                    listmanager.add(manager);
                     break;
 
                 case 2:
                     System.out.println("Ten nhan vien: ");
                     name = scanner.nextLine();
-                    NhanVien NV = new NhanVien(name);
-                    listNV.add(NV);
+                    STAFF staff = new STAFF(name);
+                    liststaff.add(staff);
                     break;
 
                 case 3:
-                    if (listQL.size() == 0) {
+                    if (listmanager.size() == 0) {
                         System.out.println("Chua co quan ly");
                     }
                     else {
-                        listQL.forEach((item) -> {
+                        listmanager.forEach((item) -> {
                             System.out.println(item.getName());
                         });
                     }
                     break;
 
                 case 4:
-                    if (listNV.size() ==0) {
+                    if (liststaff.size() == 0) {
                         System.out.println("Chua co nhan vien");
                     }
                     else {
-                        listNV.forEach((item) -> {
+                        liststaff.forEach((item) -> {
                             System.out.println(item.getName());
                         });
                     }
